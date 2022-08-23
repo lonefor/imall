@@ -2,12 +2,22 @@ package com.situ.mall.config;
 
 import com.situ.mall.interceptor.LoginInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import javax.annotation.Resource;
 
 // @Configuration用于定义配置类，可以替换xml配置文件，
 // 加了这个注解的类的内部包含一个或多个被@Bean注解的方法
 //@Configuration
 public class WebConfigurer implements WebMvcConfigurer {
+
+    //配置虚拟路径
+    public void addResourceHandlers(ResourceHandlerRegistry registry){
+        registry.addResourceHandler("/pic/**")
+                .addResourceLocations("file:/D:/java/image/");
+        WebMvcConfigurer.super.addResourceHandlers(registry);
+    }
 
     /*<!-- 配置拦截器 -->
       <mvc:interceptors>
