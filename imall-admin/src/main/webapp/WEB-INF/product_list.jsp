@@ -39,7 +39,9 @@
 </script>
 
 <script type="text/html" id="mainImageTpl">
-    <img src="/pic/{{d.mainImage}}"/>
+
+<%--    <img src="/pic/{{d.mainImage}}"/>--%>
+    <img src="{{d.mainImageUrl}}"/>
 </script>
 
 <!-- 注意：如果你直接复制所有代码到本地，上述 JS 路径需要改成你本地的 -->
